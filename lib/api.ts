@@ -21,21 +21,21 @@ const getClient = (preview: boolean): ContentfulClientApi => {
   return preview ? previewClient : contentfulClient;
 };
 
-const getPageQuery = (pageParams) => {
+const getEntryQuery = (entryParams) => {
   return {
     limit: 1,
     include: 10,
-    "fields.slug": pageParams.slug, // TODO: Change me, depending on the field we're querying
-    content_type: pageParams.pageContentType,
+    "fields.title": entryParams.title,
+    content_type: entryParams.entryContentType,
   };
 };
 
-export async function getPage(pageParams) {
-  const query = getPageQuery(pageParams);
-  const client = getClient(!!pageParams.preview);
+export async function getEntry(entryParams) {
+  const query = getEntryQuery(entryParams);
+  const client = getClient(!!entryParams.preview);
   const entries = await client.getEntries(query);
-  const [page] = entries.items;
-  return page;
+  const [entry] = entries.items;
+  return entry;
 }
 
 // Useful if demonstrating getStaticPaths for multiple pages

@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ninetailed/experience.js-next': ^3.5.0
+  '@ninetailed/experience.js-plugin-google-tagmanager': ^3.5.0
   '@ninetailed/experience.js-utils-contentful': ^3.5.0
   '@types/node': 18.15.11
   '@types/react': 18.0.33
@@ -16,6 +17,7 @@ specifiers:
 
 dependencies:
   '@ninetailed/experience.js-next': 3.5.0_ld2jel3hspngo3u5lti2kgl2sq
+  '@ninetailed/experience.js-plugin-google-tagmanager': 3.5.0
   '@ninetailed/experience.js-utils-contentful': 3.5.0_contentful@9.3.5
   '@types/node': 18.15.11
   '@types/react': 18.0.33
@@ -306,6 +308,26 @@ packages:
       '@ninetailed/experience.js-shared': 3.5.0
       analytics: 0.8.1
       lodash: 4.17.21
+      zod: 3.20.2
+    transitivePeerDependencies:
+      - '@types/dlv'
+    dev: false
+
+  /@ninetailed/experience.js-plugin-google-tagmanager/3.5.0:
+    resolution: {integrity: sha512-kPDWURNrCw/6yjjnXFy0XlZIxBhEGJuNxKx8NHBMFq7QrB5yC89CetSocmhAtZxKUCjJZWXbDFW2C9m6kqV2kg==}
+    dependencies:
+      '@ninetailed/experience.js': 3.5.0
+      '@ninetailed/experience.js-plugin-analytics': 3.5.0
+      '@ninetailed/experience.js-shared': 3.5.0
+      analytics: 0.8.1
+      async-retry: 1.3.3
+      diary: 0.3.1
+      i18n-iso-countries: 7.5.0
+      locale-enum: 1.1.1
+      lodash: 4.17.21
+      murmurhash-js: 1.0.0
+      ts-toolbelt: 9.6.0
+      tslib: 2.4.1
       zod: 3.20.2
     transitivePeerDependencies:
       - '@types/dlv'
@@ -2641,6 +2663,10 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: false
+
+  /tslib/2.4.1:
+    resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
     dev: false
 
   /tslib/2.5.0:

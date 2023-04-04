@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ninetailed/experience.js-next": "^3.5.0",
+    "@ninetailed/experience.js-plugin-google-tagmanager": "^3.5.0",
     "@ninetailed/experience.js-utils-contentful": "^3.5.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
