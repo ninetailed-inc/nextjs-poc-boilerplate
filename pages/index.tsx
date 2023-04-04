@@ -1,11 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { GetStaticProps } from "next";
+import { getExperiments, getPage } from "@/lib/api";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
 
-export default function Home() {
+import { MyComponent } from "@/components/MyComponent";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export default function Home({ page }) {
   return (
     <>
       <Head>
@@ -16,17 +21,14 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
+          <MyComponent />
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -119,5 +121,20 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
+
+export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const [page, experiments] = await Promise.all([
+    getPage({
+      preview,
+      slug: "/", // Change me
+      pageContentType: "page", // Change me
+    }),
+    getExperiments(),
+  ]);
+  return {
+    props: { page, ninetailed: { experiments } },
+    revalidate: 1, // Demo purposes only!
+  };
+};
